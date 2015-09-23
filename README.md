@@ -1,4 +1,5 @@
 # Microhomology
+[![Build Status](https://travis-ci.org/cmike444/microhomology.svg?branch=master)](https://travis-ci.org/cmike444/microhomology)
 
 TODO: Write a gem description
 
