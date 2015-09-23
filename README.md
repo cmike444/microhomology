@@ -7,19 +7,19 @@ TODO: Write a gem description
 
 Add this line to your application's Gemfile:
 
-```
+```ruby
 gem 'microhomology'
 ```
 
 And then execute:
 
-```
+```ruby
 $ bundle
 ```
 
 Or install it yourself as:
 
-```
+```ruby
 $ gem install microhomology
 ```
 
