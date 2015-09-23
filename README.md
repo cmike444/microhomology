@@ -6,17 +6,23 @@ TODO: Write a gem description
 ## Installation
 
 Add this line to your application's Gemfile:
+
 ```
-    gem 'microhomology'
+gem 'microhomology'
 ```
+
 And then execute:
+
 ```
-    $ bundle
+$ bundle
 ```
+
 Or install it yourself as:
+
 ```
-    $ gem install microhomology
+$ gem install microhomology
 ```
+
 ## Usage
 
 TODO: Write usage instructions here
