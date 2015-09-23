@@ -5,17 +5,17 @@ TODO: Write a gem description
 ## Installation
 
 Add this line to your application's Gemfile:
-
+```
     gem 'microhomology'
-
+```
 And then execute:
-
+```
     $ bundle
-
+```
 Or install it yourself as:
-
+```
     $ gem install microhomology
-
+```
 ## Usage
 
 TODO: Write usage instructions here
