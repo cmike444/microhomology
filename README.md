@@ -1,4 +1,6 @@
 # Microhomology
+By [Chris Mikelson](http://chrismikelson.com)
+
 [![Build Status](https://travis-ci.org/cmike444/microhomology.svg?branch=master)](https://travis-ci.org/cmike444/microhomology)
 
 This gem allows genetic engineers to simultaneously perform microhomology strategies using either CRISPR or TALEN techniques to speed up research time. 
@@ -19,7 +21,7 @@ Add this line to your application's Gemfile:
 gem 'microhomology'
 ```
 
-Or install it yourself as:
+Or install it yourself via Command Line Interface:
 
 ```ruby
 $ gem install microhomology
@@ -27,7 +29,7 @@ $ gem install microhomology
 
 ## Usage
 
-## CRIPSR
+### CRIPSR
 
 Perform microhomology on a DNA sequence using the `GGN19GG` CRISPR technique. This class takes two inputs, an Ensembl DNA ID _(string)_ and the microhomology strategies _(array)_.
 
