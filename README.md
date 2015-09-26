@@ -14,6 +14,8 @@ With only a few lines of code, researchers can...
 
 This gem uses [BioRuby](https://rubygems.org/gems/bio) to easily obtain compliment pairs and traverse forward or reverse strands.
 
+View the regular expression for each microhomology techique [here](lib/microhomology/strategies.rb). To add to this list, please follow the contributing guildines below. 
+
 ## Installation
 
 Add this line to your application's Gemfile:
