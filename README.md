@@ -1,7 +1,15 @@
 # Microhomology
 [![Build Status](https://travis-ci.org/cmike444/microhomology.svg?branch=master)](https://travis-ci.org/cmike444/microhomology)
 
-This gem allows genetic engineers to simultaneous perform microhomology strategies using either CRISPR or TALEN techniques to speed up research time. This gem uses [BioRuby](https://rubygems.org/gems/bio) to easily obtain compliment pairs and traverse forward or reverse strands.
+This gem allows genetic engineers to simultaneously perform microhomology strategies using either CRISPR or TALEN techniques to speed up research time. 
+
+With only a few lines of code, researchers can...
+>Identify microhomology canidate sites in a gene
+>Perform microhomology on sites using multiple strategies
+>Get forward and reverse sequences for each strategy's results
+>Get forward and reverse oligo sequences for each strategy's results
+
+This gem uses [BioRuby](https://rubygems.org/gems/bio) to easily obtain compliment pairs and traverse forward or reverse strands.
 
 ## Installation
 
