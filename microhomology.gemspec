@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'microhomology/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "microhomology"
+  spec.name          = "Microhomology"
   spec.version       = Microhomology::VERSION
   spec.authors       = ["Chris Mikelson"]
   spec.email         = ["chrismikelson@gmail.com"]
@@ -24,4 +24,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "guard"
   spec.add_development_dependency "guard-rspec"
   spec.add_development_dependency "coveralls"
+
+  spec.add_runtime_dependency "json", '~> 1.8', '>= 1.8.3'
+  spec.add_runtime_dependency "bio", '~> 1.5', '>= 1.5.0'
 end
