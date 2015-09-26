@@ -88,6 +88,7 @@ Using the Ensembl DNA and CRISPR algorithm, the DNA is scanned to identify targe
 Accessing the DNA is easy. The DNA from Ensembl is masked to differentiate between Introns and Exons. 
 
 >The default is to scan only exons when using a microhomology strategy. Adding options to choose between exons, introns or both is intended to be added at a later date.
+
 ```ruby
 mh = Microhomology::Crispr.new('ENSDARG00000061303', [3, 6, 5])
 ```
