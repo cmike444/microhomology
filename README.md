@@ -108,8 +108,8 @@ mh.results.each do |target|
     puts result["strategy"]
     puts result["forward_strand"]
     puts result["reverse_strand"]
-    puts result["mh#{result["strategy"]}_oligo_forward"]
-    puts result["mh#{result["strategy"]}_oligo_reverse"]
+    puts result["oligo_forward"]
+    puts result["oligo_reverse"]
   end
 end
 ```
