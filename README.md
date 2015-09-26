@@ -35,18 +35,13 @@ $ gem install microhomology
 
 ## CRIPSR
 
-Perform microhomology on a DNA sequence using the `GGN19GG` CRISPR technique. This class takes two inputs, an Ensembl DNA ID _(string)_ and an the microhomology strategies _(array)_.
+Perform microhomology on a DNA sequence using the `GGN19GG` CRISPR technique. This class takes two inputs, an Ensembl DNA ID _(string)_ and the microhomology strategies _(array)_.
 
 ```ruby
 mh = Microhomology::Crispr.new('ENSDARG00000061303', [6, 12, 24, 48, 96])
 mh.results
 ```
-The DNA from Ensembl is masked to differentiate between Introns and Exons.
-```ruby
-mh.dna
-# TTTGCTGTGGTTTCACTCCTTCagaaggtcttatttgttttcttccag
-```
-Using the Ensembl DNA and CRISPR algorithm, target sites are identified. Once target sites are identified, microhomology will be performed for each of the strategies specified. 
+Using the Ensembl DNA and CRISPR algorithm, the DNA is scanned to identify target sites on both forward and reverse strands. Once target sites are identified, microhomology will be performed for each of the strategies specified. 
 
 ```javascript
     {
@@ -91,6 +86,12 @@ Using the Ensembl DNA and CRISPR algorithm, target sites are identified. Once ta
       }
     ]
   }
+```
+
+The DNA from Ensembl is masked to differentiate between Introns and Exons.
+```ruby
+mh.dna
+# TTTGCTGTGGTTTCACTCCTTCagaaggtcttatttgttttcttccag
 ```
 
 ## Contributing
