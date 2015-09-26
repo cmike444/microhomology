@@ -113,10 +113,10 @@ mh.exons
 ## Roadmap
 Changes to this gem will be ongoing. If you would like to contribute, please follow the process below.
 
-[ ] Better integration with Rails
-[ ] Additional DNA data source options
-[ ] Intron and Exon options
-[ ] Add TALEN technique
+* Better integration with Rails
+* Additional DNA data source options
+* Intron and Exon options
+* Add TALEN technique
 
 ## Contributing
 
