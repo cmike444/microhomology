@@ -31,13 +31,14 @@ $ gem install microhomology
 
 #### CRIPSR
 
-Perform microhomology on a DNA sequence using the `GGN19GG` CRISPR technique. This class takes two inputs, an Ensembl DNA ID _(string)_ and the microhomology strategies _(array)_.
+Perform microhomology on a DNA sequence using the `GGN19GG` CRISPR technique. This class takes two inputs, an Ensembl Gene ID _(string)_ and the microhomology strategies _(array)_. Using the Ensembl DNA and CRISPR algorithm, the DNA is scanned to identify target sites on both forward and reverse strands. Once target sites are identified, microhomology will be performed for each of the strategies specified. 
+
+>**Note:** This currently relies on the Ensembl REST API for it's data. DNA can only be obtained by using a valid Ensembl Gene ID. Additional options for obtaining DNA via other sources such as text files, formated files or 3rd Party API's is intended to be added at a later date.
 
 ```ruby
 mh = Microhomology::Crispr.new('ENSDARG00000061303', [6, 12, 24, 48, 96])
 mh.results
 ```
-Using the Ensembl DNA and CRISPR algorithm, the DNA is scanned to identify target sites on both forward and reverse strands. Once target sites are identified, microhomology will be performed for each of the strategies specified. 
 
 ```javascript
     {
@@ -87,7 +88,7 @@ Using the Ensembl DNA and CRISPR algorithm, the DNA is scanned to identify targe
 #### The DNA
 The DNA from Ensembl is masked to differentiate between Introns and Exons. 
 
->*Note:* The default is to scan only exons when using a microhomology strategy. Adding options to choose between exons, introns or include both is intended to be added at a later date.
+>**Note:** The default is to scan only exons when using a microhomology strategy. Adding options to choose between exons, introns or include both is intended to be added at a later date.
 
 ```ruby
 mh = Microhomology::Crispr.new('ENSDARG00000061303', [3, 6, 5])
