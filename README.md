@@ -3,7 +3,7 @@ By [Chris Mikelson](http://chrismikelson.com)
 
 [![Build Status](https://travis-ci.org/cmike444/microhomology.svg?branch=master)](https://travis-ci.org/cmike444/microhomology)
 
-This gem allows genetic engineers to simultaneously perform microhomology strategies using either CRISPR or TALEN techniques to speed up research time. 
+Quickly perform microhomology to speed up genetic engineering. 
 
 With only a few lines of code, researchers can...
 
@@ -13,8 +13,6 @@ With only a few lines of code, researchers can...
 *   Get forward and reverse oligo sequences for each strategy's results
 
 This gem uses [BioRuby](https://rubygems.org/gems/bio) to easily obtain compliment pairs and traverse forward or reverse strands.
-
-View the regular expression for each microhomology techique [here](lib/microhomology/strategies.rb). To add to this list, please follow the contributing guildines below. 
 
 ## Installation
 
@@ -34,7 +32,7 @@ $ gem install microhomology
 
 #### CRIPSR
 
-Perform microhomology on a DNA sequence using the `GGN19GG` CRISPR technique. This class takes two inputs, an Ensembl Gene ID _(string)_ and the microhomology strategies _(array)_. Using the Ensembl DNA and CRISPR algorithm, the DNA is scanned to identify target sites on both forward and reverse strands. Once target sites are identified, microhomology will be performed for each of the strategies specified. 
+Perform microhomology on a DNA sequence using the [CRISPR](https://www.youtube.com/watch?v=2pp17E4E-O8) technique. This class takes two inputs, an Ensembl Gene ID _(string)_ and the microhomology strategies _(array)_. Using the Ensembl DNA and [CRISPR algorithm](lib/microhomology/strategies.rb), the DNA is scanned to identify target sites on both forward and reverse strands. Once target sites are identified, microhomology will be performed for each of the strategies specified. 
 
 >**Note:** This currently relies on the Ensembl REST API for it's data. DNA can only be obtained by using a valid Ensembl Gene ID. Additional options for obtaining DNA via other sources such as text files, formated files or 3rd Party API's is intended to be added at a later date.
 
@@ -94,7 +92,7 @@ The DNA from Ensembl is masked to differentiate between Introns and Exons.
 >**Note:** The default is to scan only exons when using a microhomology strategy. Adding options to choose between exons, introns or include both is intended to be added at a later date.
 
 ```ruby
-mh = Microhomology::Crispr.new('ENSDARG00000061303', [3, 6, 5])
+mh = Microhomology::Crispr.new('ENSDARG00000061303', [3, 6, 9])
 ```
 
 ```ruby
