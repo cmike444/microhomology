@@ -7,10 +7,10 @@ This gem allows genetic engineers to simultaneously perform microhomology strate
 
 With only a few lines of code, researchers can...
 
-*Identify microhomology canidate sites in a gene
-*Perform microhomology on sites using multiple strategies
-*Get forward and reverse sequences for each strategy's results
-*Get forward and reverse oligo sequences for each strategy's results
+*   Identify microhomology canidate sites in a gene
+*   Perform microhomology on sites using multiple strategies
+*   Get forward and reverse sequences for each strategy's results
+*   Get forward and reverse oligo sequences for each strategy's results
 
 This gem uses [BioRuby](https://rubygems.org/gems/bio) to easily obtain compliment pairs and traverse forward or reverse strands.
 
