@@ -58,9 +58,9 @@ module Microhomology
 
             target["microhomology"] << { 
               "strategy" => "#{strategy}",
-              "forward_strand" => get_bio_sequence[mh_first_char..mh_last_char],
+              "forward_strand" => get_bio_sequence[mh_first_char..mh_last_char].upcase,
               "reverse_strand" => get_bio_sequence[mh_first_char..mh_last_char].complement.reverse.upcase,
-              "oligo_forward" => get_bio_sequence[mh_first_char...target["last"]],
+              "oligo_forward" => get_bio_sequence[mh_first_char...target["last"]].upcase,
               "oligo_reverse" => get_bio_sequence[mh_first_char...target["last"]].complement.reverse.upcase
             }
           end

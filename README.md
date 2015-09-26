@@ -86,33 +86,7 @@ mh.results
   }
 ```
 
-#### CRISPR Example
-```ruby
-require 'rubygems'
-require 'microhomology'
-
-mh = Microhomology::Crispr.new('ENSDARG00000061303', [6, 12, 24, 48, 96])
-puts mh.key # The Ensembl Gene ID
-puts mh.dna # The DNA data
-puts mh.introns # The DNA data (only introns)
-puts mh.exons # The DNA data (only exons)
-puts mh.strategies # The microhomology strategies
-
-mh.results.each do |target|  
-  puts target['target'] # Identified target site
-  puts target['first'] # Position (from left) of first base pair
-  puts target['last'] # Position (from left) of last base pair
-  puts target['microhomology'] # Contains JSON of results for each strategy
-
-  target['microhomology'].each do |result|
-    puts result["strategy"]
-    puts result["forward_strand"]
-    puts result["reverse_strand"]
-    puts result["oligo_forward"]
-    puts result["oligo_reverse"]
-  end
-end
-```
+See an [example](examples/crispr_test.rb) that prints out results to the console.
 
 ## The DNA
 The DNA from Ensembl is masked to differentiate between Introns and Exons. 
