@@ -32,7 +32,7 @@ $ gem install microhomology
 
 #### CRIPSR
 
-Perform microhomology on a DNA sequence using the [CRISPR](https://www.youtube.com/watch?v=2pp17E4E-O8) technique. This class takes two inputs, an Ensembl Gene ID _(string)_ and the microhomology strategies _(array)_. Using the Ensembl DNA and [CRISPR algorithm](lib/microhomology/strategies.rb), the DNA is scanned to identify target sites on both forward and reverse strands. Once target sites are identified, microhomology will be performed according to each strategy in the array. 
+Perform microhomology on a DNA sequence using the [CRISPR](https://www.youtube.com/watch?v=2pp17E4E-O8) technique. This class takes two inputs, an Ensembl Gene ID _(string)_ and the microhomology strategies _(array)_. Using the DNA returned from Ensembl and the [CRISPR algorithm](lib/microhomology/strategies.rb), the DNA is scanned to identify target sites on both forward and reverse strands. Once target sites are identified, microhomology will be performed according to each strategy in the array. 
 
 >**Note:** This currently relies on the Ensembl REST API for it's data. DNA can only be obtained by using a valid Ensembl Gene ID. Additional options for obtaining DNA via other sources such as text files, formated files or 3rd Party API's is intended to be added at a later date.
 
@@ -109,6 +109,14 @@ mh.introns
 mh.exons
 # TTTGCTGTGGTTTCACTCCTTC
 ```
+
+## Roadmap
+Changes to this gem will be ongoing. If you would like to contribute, please follow the process below.
+
+[ ] Better integration with Rails
+[ ] Additional DNA data source options
+[ ] Intron and Exon options
+[ ] Add TALEN technique
 
 ## Contributing
 
