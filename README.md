@@ -6,6 +6,7 @@ By [Chris Mikelson](http://chrismikelson.com)
 This gem allows genetic engineers to simultaneously perform microhomology strategies using either CRISPR or TALEN techniques to speed up research time. 
 
 With only a few lines of code, researchers can...
+
 *Identify microhomology canidate sites in a gene
 *Perform microhomology on sites using multiple strategies
 *Get forward and reverse sequences for each strategy's results
