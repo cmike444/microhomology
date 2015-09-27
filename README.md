@@ -86,7 +86,7 @@ mh.results
   }
 ```
 
-See an [CRISPR example](examples/crispr_test.rb) that prints out results to the console.
+See an [CRISPR example](examples/crispr_example.rb) that prints out results to the console.
 
 #### TALEN
 
@@ -114,6 +114,8 @@ mh.results
       ]
     }
 ```
+
+See an [TALEN example](examples/talen_example.rb) that prints out results to the console.
 
 ## The DNA
 The DNA from Ensembl is masked to differentiate between Introns and Exons. 
