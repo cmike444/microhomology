@@ -33,6 +33,30 @@ $ gem install microhomology
 
 >**Note:** This currently relies on the Ensembl REST API for it's data. DNA can only be obtained by using a valid Ensembl Gene ID. Additional options for obtaining DNA via other sources such as text files, formated files or 3rd Party API's is intended to be added at a later date.
 
+## The DNA
+The DNA from Ensembl is masked to differentiate between Introns and Exons. 
+
+>**Note:** The default is to scan only exons when using a microhomology strategy. Adding options to choose between exons, introns or include both is intended to be added at a later date.
+
+```ruby
+mh = Microhomology::Crispr.new('ENSDARG00000061303', [3, 6, 9])
+```
+
+```ruby
+mh.dna
+# TTTGCTGTGGTTTCACTCCTTCagaaggtcttatttgttttcttccag
+```
+
+```ruby
+mh.introns
+# agaaggtcttatttgttttcttccag
+```
+
+```ruby
+mh.exons
+# TTTGCTGTGGTTTCACTCCTTC
+```
+
 #### CRIPSR
 
 Perform microhomology on a DNA sequence using the [CRISPR](https://www.youtube.com/watch?v=2pp17E4E-O8) technique. This class takes two inputs, an Ensembl Gene ID _(string)_ and the microhomology strategies _(array)_. Using the DNA returned from Ensembl and the [CRISPR algorithm](lib/microhomology/strategies.rb), the DNA is scanned to identify target sites on both forward and reverse strands. Once target sites are identified, microhomology is performed according to each strategy in the array. 
@@ -115,30 +139,6 @@ mh.results
 ```
 
 See an [TALEN example](examples/talen_example.rb) that prints out results to the console.
-
-## The DNA
-The DNA from Ensembl is masked to differentiate between Introns and Exons. 
-
->**Note:** The default is to scan only exons when using a microhomology strategy. Adding options to choose between exons, introns or include both is intended to be added at a later date.
-
-```ruby
-mh = Microhomology::Crispr.new('ENSDARG00000061303', [3, 6, 9])
-```
-
-```ruby
-mh.dna
-# TTTGCTGTGGTTTCACTCCTTCagaaggtcttatttgttttcttccag
-```
-
-```ruby
-mh.introns
-# agaaggtcttatttgttttcttccag
-```
-
-```ruby
-mh.exons
-# TTTGCTGTGGTTTCACTCCTTC
-```
 
 ## Roadmap
 Changes to this gem will be ongoing. If you would like to contribute, please follow the process below.
