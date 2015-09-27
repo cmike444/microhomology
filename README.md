@@ -93,7 +93,7 @@ See an [CRISPR example](examples/crispr_example.rb) that prints out results to t
 Perform microhomology on a DNA sequence using the [TALEN](https://en.wikipedia.org/wiki/Transcription_activator-like_effector_nuclease) technique. This class takes one input, an Ensembl Gene ID _(string)_. Using the DNA returned from Ensembl and the [TALEN algorithm](lib/microhomology/strategies.rb), the DNA is scanned to identify target sites on both forward and reverse strands. Once target sites are identified, microhomology is performed. 
 
 ```ruby
-mh = Microhomology::Talen.new('ENSDARG00000061303', [6, 12, 24, 48, 96])
+mh = Microhomology::Talen.new('ENSDARG00000061303')
 mh.results
 ```
 
