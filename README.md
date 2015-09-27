@@ -86,7 +86,34 @@ mh.results
   }
 ```
 
-See an [example](examples/crispr_test.rb) that prints out results to the console.
+See an [CRISPR example](examples/crispr_test.rb) that prints out results to the console.
+
+#### TALEN
+
+Perform microhomology on a DNA sequence using the [TALEN](https://en.wikipedia.org/wiki/Transcription_activator-like_effector_nuclease) technique. This class takes one input, an Ensembl Gene ID _(string)_. Using the DNA returned from Ensembl and the [TALEN algorithm](lib/microhomology/strategies.rb), the DNA is scanned to identify target sites on both forward and reverse strands. Once target sites are identified, microhomology is performed. 
+
+>**Note:** This currently relies on the Ensembl REST API for it's data. DNA can only be obtained by using a valid Ensembl Gene ID. Additional options for obtaining DNA via other sources such as text files, formated files or 3rd Party API's is intended to be added at a later date.
+
+```ruby
+mh = Microhomology::Talen.new('ENSDARG00000061303', [6, 12, 24, 48, 96])
+mh.results
+```
+
+```javascript
+    {
+    "target": "TTGCTGTGGTTTCACTCCTTCATCTTCTTGAAGGAGCTCAACCTCCA",
+    "first": 1,
+    "last": 48,
+    "microhomology": [
+        {
+          "forward_strand": "TTGCTGTGGTTTCACTCCTTCATCTTCTTGAAGGAGCTCAACCTCCA",
+          "reverse_strand": "AACGACACCAAAGTGAGGAAGTAGAAGAACTTCCTCGAGTTGGAGGT",
+          "oligo_forward": "TTGCTGTGGTTTCACTCTTCTTGACCTTCATAGGAGCTCAACCTCCA",
+          "oligo_reverse": "AACGACACCAAAGTGAGAAGAACTGGAAGTATCCTCGAGTTGGAGGT"
+        },
+      ]
+    }
+```
 
 ## The DNA
 The DNA from Ensembl is masked to differentiate between Introns and Exons. 
@@ -118,7 +145,6 @@ Changes to this gem will be ongoing. If you would like to contribute, please fol
 * Better integration with Rails
 * Additional DNA data source options
 * Intron and Exon options
-* Add TALEN technique
 
 ## Contributing
 

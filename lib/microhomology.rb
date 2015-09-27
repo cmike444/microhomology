@@ -7,7 +7,7 @@ require "open-uri"
 module Microhomology
   
   class Crispr
-    attr_accessor :key, :strategies, :dna, :targets, :results
+    attr_accessor :key, :strategies, :dna, :results
     
     def initialize(key, strategies)
       @key = key 
@@ -73,16 +73,12 @@ module Microhomology
   end
 
   class Talen
-    attr_accessor :key, :strategies, :dna, :targets, :results
+    attr_accessor :key, :dna, :results
 
     def initialize(key)
       @key = key
       @dna = open(get_ensembl_url).read
       @results = perform_microhomology
-    end
-
-    def get_bio_sequence
-      Bio::Sequence::NA.new(self.dna)
     end
 
     def get_ensembl_url
@@ -99,18 +95,41 @@ module Microhomology
 
     def perform_microhomology
       targets = []
+      self.dna.scan(Microhomology::TALEN) do |talen|
+        targets << {
+                    "target" => talen,
+                    "first" => Regexp.last_match.offset(0).first, 
+                    "last" => Regexp.last_match.offset(0).last,
+                    "microhomology" => []
+                    }
+      end
+
       if targets
         targets.each do |target|
-          self.dna.scan(Microhomology::TALEN) do |talen|
-            targets << {
-                        "target" => talen,
-                        "first" => Regexp.last_match.offset(0).first, 
-                        "last" => Regexp.last_match.offset(0).last,
-                        "microhomology" => []
-                        }
-          end
+
+          talen_site = Bio::Sequence::NA.new(target['target'])
+          talen_site_complement = talen_site.complement.reverse
+
+          talen1  = talen_site[0..15]
+          spacer1 = talen_site[16..22]
+          spacer2 = talen_site[23..30]
+          talen2  = talen_site[31..47]
+
+          talen_forward = Bio::Sequence::NA.new("#{talen1}#{spacer2}#{spacer1}#{talen2}")
+          talen_reverse = talen_forward.complement.reverse
+
+          target["microhomology"] << { 
+              "forward_strand" => "#{talen_site.upcase}",
+              "reverse_strand" => "#{talen_site_complement.upcase}",
+              "oligo_forward" => "#{talen_forward.upcase}",
+              "oligo_reverse" => "#{talen_reverse.upcase}"
+            }
         end
+        targets
+      else
+        "Sorry, no TALEN targets found."
       end
     end
+
   end
 end
