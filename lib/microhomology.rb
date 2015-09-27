@@ -71,4 +71,46 @@ module Microhomology
       end
     end
   end
+
+  class Talen
+    attr_accessor :key, :strategies, :dna, :targets, :results
+
+    def initialize(key)
+      @key = key
+      @dna = open(get_ensembl_url).read
+      @results = perform_microhomology
+    end
+
+    def get_bio_sequence
+      Bio::Sequence::NA.new(self.dna)
+    end
+
+    def get_ensembl_url
+      "http://rest.ensembl.org/sequence/id/#{self.key}?content-type=text/plain;mask_feature=true"
+    end
+
+    def exons
+      self.dna.scan /[A-Z]+/
+    end
+
+    def introns
+      self.dna.scan /[a-z]+/
+    end
+
+    def perform_microhomology
+      targets = []
+      if targets
+        targets.each do |target|
+          self.dna.scan(Microhomology::TALEN) do |talen|
+            targets << {
+                        "target" => talen,
+                        "first" => Regexp.last_match.offset(0).first, 
+                        "last" => Regexp.last_match.offset(0).last,
+                        "microhomology" => []
+                        }
+          end
+        end
+      end
+    end
+  end
 end
