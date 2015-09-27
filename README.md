@@ -1,4 +1,5 @@
 ![Microhomology Logo](https://raw.github.com/cmike444/microhomology/master/microhomology.png)
+
 By [Chris Mikelson](http://chrismikelson.com)
 
 [![Build Status](https://travis-ci.org/cmike444/microhomology.svg?branch=master)](https://travis-ci.org/cmike444/microhomology)
